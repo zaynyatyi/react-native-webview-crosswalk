@@ -1,36 +1,48 @@
 {
-    "name":             "react-native-webview-crosswalk",
-    "version":          "0.0.9",
-    "description":      "Crosswalk's WebView for React Native on Android",
-    "main":             "index.js",
-    "scripts":          {
-    },
-    "repository":       {
-        "type": "git",
-        "url":  "git+https://github.com/jordansexton/react-native-webview-crosswalk.git"
-    },
-    "keywords":         [
-        "react",
-        "native",
-        "react native",
-        "webview",
-        "crosswalk",
-        "xwalk",
-        "android"
-    ],
-    "author":           "Jordan Sexton <jordan@jordansexton.com>",
-    "contributors":     [
-        {
-            "name":  "Jordan Sexton",
-            "email": "jordan@jordansexton.com"
-        }
-    ],
-    "license":          "MIT",
-    "bugs":             {
-        "url": "https://github.com/jordansexton/react-native-webview-crosswalk/issues"
-    },
-    "homepage":         "https://github.com/jordansexton/react-native-webview-crosswalk",
-    "peerDependencies": {
-        "react-native": ">=0.19.0"
+  "name": "react-native-webview-crosswalk",
+  "version": "0.0.9",
+  "description": "Crosswalk's WebView for React Native on Android",
+  "main": "index.js",
+  "scripts": {
+    "postinstall": "node get_library.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jordansexton/react-native-webview-crosswalk.git"
+  },
+  "keywords": [
+    "react",
+    "native",
+    "react native",
+    "webview",
+    "crosswalk",
+    "xwalk",
+    "android"
+  ],
+  "author": {
+    "name": "Jordan Sexton",
+    "email": "jordan@jordansexton.com"
+  },
+  "contributors": [
+    {
+      "name": "Jordan Sexton",
+      "email": "jordan@jordansexton.com"
     }
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jordansexton/react-native-webview-crosswalk/issues"
+  },
+  "homepage": "https://github.com/jordansexton/react-native-webview-crosswalk",
+  "peerDependencies": {
+    "react-native": ">=0.19.0",
+    "node-wget": ">=0.4.2"
+  },
+  "gitHead": "3df728c3e356a223ed2acd6aeef7d0b115b5526a",
+  "readme": "# react-native-webview-crosswalk\nCrosswalk's WebView for React Native on Android.\n\n[![npm version](http://img.shields.io/npm/v/react-native-webview-crosswalk.svg?style=flat-square)](https://npmjs.org/package/react-native-webview-crosswalk \"View this project on npm\")\n[![npm downloads](http://img.shields.io/npm/dm/react-native-webview-crosswalk.svg?style=flat-square)](https://npmjs.org/package/react-native-webview-crosswalk \"View this project on npm\")\n[![npm licence](http://img.shields.io/npm/l/react-native-webview-crosswalk.svg?style=flat-square)](https://npmjs.org/package/react-native-webview-crosswalk \"View this project on npm\")\n\n### Installation\n\n* From the root of your React Native project\n\n```shell\nnpm install react-native-webview-crosswalk --save\nmkdir android/app/libs\ncp node_modules/react-native-webview-crosswalk/libs/xwalk_core_library-17.46.448.10.aar android/app/libs/\n```\n\n### Include module in your Android project\n\n* In `android/setting.gradle`\n\n```gradle\n...\ninclude ':CrosswalkWebView', ':app'\nproject(':CrosswalkWebView').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-webview-crosswalk')\n```\n\n### Include libs in your Android project\n\n* In `android/build.gradle`\n\n```gradle\n...\nallprojects {\n    repositories {\n        mavenLocal()\n        jcenter()\n\n        flatDir {          // <--- add this line\n            dirs 'libs'    // <--- add this line\n        }                  // <--- add this line\n    }\n}\n```\n\n* In `android/app/build.gradle`\n\n```gradle\n...\ndependencies {\n  ...\n  compile (name: \"xwalk_core_library-17.46.448.10\", ext: \"aar\")    // <--- add this line\n  compile project(':CrosswalkWebView')                             // <--- add this line\n}\n```\n\n* Register package in MainActivity.java\n\n```java\nimport com.jordansexton.react.crosswalk.webview.CrosswalkWebViewPackage;    // <--- add this line\n\npublic class MainActivity extends ReactActivity {\n  ......\n\n  @Override\n  protected List<ReactPackage> getPackages() {\n    return Arrays.<ReactPackage>asList(\n        new MainReactPackage(),\n        new CrosswalkWebViewPackage(this)    // <--- add this line\n    );\n  }\n\n  ......\n\n}\n```\n\n## License\nMIT\n",
+  "readmeFilename": "README.md",
+  "_id": "react-native-webview-crosswalk@0.0.9",
+  "_shasum": "503e00efe3ab9a25610034fc7fbbb098dd458721",
+  "_from": "git+https://github.com/zaynyatyi/react-native-webview-crosswalk.git#3df728c3e356a223ed2acd6aeef7d0b115b5526a",
+  "_resolved": "git+https://github.com/zaynyatyi/react-native-webview-crosswalk.git#3df728c3e356a223ed2acd6aeef7d0b115b5526a"
 }
