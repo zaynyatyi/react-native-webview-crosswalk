@@ -124,7 +124,9 @@ public class CrosswalkWebViewGroupManager extends ViewGroupManager<CrosswalkWebV
     public Map getExportedCustomDirectEventTypeConstants () {
         return MapBuilder.of(
             NavigationStateChangeEvent.EVENT_NAME,
-            MapBuilder.of("registrationName", "onNavigationStateChange")
+            MapBuilder.of("registrationName", "onNavigationStateChange"),
+            ErrorEvent.EVENT_NAME,
+            MapBuilder.of("registrationName", "onError")
         );
     }
 
